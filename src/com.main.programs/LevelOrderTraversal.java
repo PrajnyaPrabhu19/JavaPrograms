@@ -44,8 +44,10 @@ public class LevelOrderTraversal{
         q.add(root);
         q.add(null);
 
+        //At each level have an list to enter the values which will be added to final
         List<Integer> arr=new ArrayList<>();
         while(!q.isEmpty()){
+            //get the first node from q
             TreeNode node = q.poll();
             if(node == null){
                 traverse.add(arr);
