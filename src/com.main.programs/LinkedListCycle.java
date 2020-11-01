@@ -11,18 +11,18 @@ import java.lang.*;
 public class LinkedListCycle{
 
     public static boolean hasCycle(ListNode head){
-        if(head==null) return false;
+        if(head==null || head.next==null) return false;
         ListNode p,q;
-        p=head;
+        p=head.next;
         q=head;
-        while(p.next!=null || p.next.next!=null){
+        while(p!=q){
+            if(p==null||p.next==null){
+                return false;
+            }
             p=p.next.next;
             q=q.next;
-            if(p==q){
-                return true;
-            }
         }
-        return false;
+        return true;
     }
 
     public static void main(String[] args) {
