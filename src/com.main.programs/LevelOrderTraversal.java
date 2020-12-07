@@ -45,7 +45,7 @@ public class LevelOrderTraversal{
         q.add(null);
 
         //At each level have an list to enter the values which will be added to final
-        List<Integer> arr=new ArrayList<>();
+        List<Integer> arr = new ArrayList<>();
         while(!q.isEmpty()){
             //get the first node from q
             TreeNode node = q.poll();
@@ -86,5 +86,6 @@ public class LevelOrderTraversal{
                 System.out.println("");
             }
         System.out.print("]");
+        System.out.println("");
     }
 }
