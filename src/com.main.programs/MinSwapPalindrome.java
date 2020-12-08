@@ -59,6 +59,7 @@ public class MinSwapPalindrome{
                     while(k>p && arr[k]!= arr[p]){
                         k--;
                     }
+                    //if the pth element should be the middle element;
                     if(k==p){
                         swap(arr, p, p+1);
                         swaps++;
@@ -80,7 +81,7 @@ public class MinSwapPalindrome{
     }
 
     public static void main(String[] args) {
-        String s1 = "mamad";
+        String s1 = "dmama";
         String s2 = "abcdf";
         System.out.println("The minimum number of adjacent swaps required to convert a string '"+s1+"' to palindrome is: "+minswap(s1));
         System.out.println("The minimum number of adjacent swaps required to convert a string '"+s2+"' to palindrome is: "+minswap(s2));
