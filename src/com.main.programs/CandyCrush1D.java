@@ -52,9 +52,20 @@ public class CandyCrush1D{
             }
             else{
                 int t = stack.peek().v;
+                //check if current char is not equal
                 if(stack.peek().c!=c){
+                    //check if top element count is gt or eq to k
                     if(t>=k){
                         stack.pop();
+                        //check if the below element is same
+                        if(!stack.isEmpty() && stack.peek().c==c){
+                            stack.peek().incCount();
+                        }
+                        else{
+                            stack.push(new CharCount(c,1));
+                        }
+                    }
+                    else{
                         stack.push(new CharCount(c,1));
                     }
                 }
@@ -63,13 +74,17 @@ public class CandyCrush1D{
                 }
             }
         }
+        //check at the end if the top element is greater than or eq to k
+        if(stack.peek().v>=k){
+            stack.pop();
+        }
         //construct string to return
         String res = "";
         while(!stack.isEmpty()){
             int i = stack.peek().v;
             char r = stack.peek().c;
             while(i-- > 0){
-                res+=r;
+                res=String.valueOf(r)+res;
             }
             stack.pop();
         }
@@ -77,7 +92,8 @@ public class CandyCrush1D{
     }
 
     public static void main(String[] args) {
-        String s = "deeedbbcccbdaa";
+        String s = "aaaa";
+
         int k = 3;
         System.out.println("The string after "+k+" crushing is: "+crushString(s,k));
     }
